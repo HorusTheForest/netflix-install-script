@@ -8,7 +8,7 @@ sudo locale-gen en_US.UTF-8
 #Tell ncurses to use line characters that work with UTF-8.
 export NCURSES_NO_UTF8_ACS=1
 
-cd /home/osmc || exit
+cd /home/pi || exit
 # Map parameters to coder-friendly names.
 Program="kodi"
 version="19"
@@ -35,7 +35,7 @@ else
    sudo apt-get install python3-crypto python3-pycryptodome python3-pip
 fi
 
-if [ ! -d "/home/osmc/addons" ]; then
+if [ ! -d "/home/pi/addons" ]; then
 	mkdir addons
 fi
 cd addons || exit
@@ -72,8 +72,8 @@ fi
 sudo systemctl stop mediacenter
 sleep 5
 dialog --title "Installation finished!" --msgbox "\nThank you for using my installer\nNow go to addon-browser and choose install from zip\nNavigate to homefolder/addons and install Netflix repository." 11 70
-if [ -f "/home/osmc/netflix_prep_install.sh" ]; then
-	rm /home/osmc/netflix_prep_install.sh
+if [ -f "/home/pi/netflix_prep_install.sh" ]; then
+	rm /home/pi/netflix_prep_install.sh
 fi
 sudo systemctl start mediacenter
 
